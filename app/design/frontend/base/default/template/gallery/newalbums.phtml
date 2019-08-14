@@ -1,0 +1,17 @@
+<div class="box base-mini new-albums">
+    <div class="head">
+        <h4><?php echo $this->__('New Albums') ?></h4>
+    </div>
+
+	<?php 	$new_albums = $this->getNewAlbums(); ?>
+	<center>
+	<ul>
+	<?php foreach ($new_albums as $item): ?>
+			<li>				
+				<a href="<?php echo $this->getUrlRewrite($item) ?>" alt="<?php echo $item->getTitle() ?>" ><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename())->resize(80) ?>"/></a>
+			</li>		
+	<?php endforeach; ?>
+	</ul>	
+	</center>
+	<div class='view-all'><a href="<?php echo $this->getUrl('gallery') ?>"><?php echo $this->__('View all') ?></a></div>	
+</div>

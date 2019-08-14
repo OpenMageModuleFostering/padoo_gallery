@@ -1,0 +1,110 @@
+<?php 
+	$item = $this->getDetails();
+	$reviews = $this->getReviews();
+	$rates = $this->getTotalRates();
+?>
+<script type="text/javascript">
+	var fileLoadingImage = "<?php echo $this->getSkinUrl('gallery/images/loading.gif') ?>";		
+	var fileBottomNavCloseImage = "<?php echo $this->getSkinUrl('gallery/images/closelabel.gif') ?>";
+</script>
+<?php 
+	echo $this->getBreadcrumbs();
+?>
+<div class="page-title">
+	<h1><?php echo $item->getTitle() ?></h1>
+</div>
+
+<div class="gallery-details">
+	<?php if(Mage::getStoreConfig('gallery/lightbox/enable_lightbox')): ?>
+	<a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $item->getFilename() ?>" rel="lightbox[projects]" title="<?php echo $item->getTitle() ?>" <?php if(Mage::getStoreConfig('gallery/lightbox/enable_description_lightbox')): ?>data-content="<?php echo $item->getContent() ?>" <?php endif; ?>><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename()) ?>" /></a>
+	<?php else: ?>
+	<img src="<?php echo $this->helper('gallery/image')->init($item->getFilename()) ?>" />
+	<?php endif; ?>
+	<p><?php echo $item->getContent() ?></p>
+	<span class="date"><?php echo date("F j, Y g:i", strtotime($item->getCreatedTime())); ?></span>
+</div>
+<?php if(Mage::getStoreConfig('gallery/reviews/enable_review')): ?>
+<div class="gallery-review">
+	<div class="review-list">
+		<h3><?php echo $this->__('All reviews') ?></h3>
+		<div class="total-rate">
+			<label class="f-left"><?php echo $this->__('Total Rate') ?></label>
+			<ul title="Rate This!" class="star">
+				<li style="width: <?php echo $rates['rate'] ?>%" title="0" class="curr"></li>
+			</ul>
+			<span class="totalrate"> ( <?php echo $rates['total'] ? $rates['total'] : 0 ?> <?php echo $this->__('rates') ?> )</span>
+		</div>
+		<div class="comment">
+			<?php foreach($reviews as $record): ?>
+			<?php $rate = ($record->getReviewRate() / 5) * 100; ?>
+			<div>
+				<ul title="Rate This!" class="star">
+					<li style="width: <?php echo $rate ?>%;" title="0" class="curr"></li>
+				</ul>
+				<span><?php echo $this->__('review by') ?> <b><?php echo $record->getReviewName() ?></b></span>
+				<span class="date"><?php echo $this->__('on') ?> <?php echo $record->getCreatedTime() ?></span>
+				<div class="content"><?php echo nl2br($record->getReviewContent()) ?></div>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+	<?php if(Mage::getStoreConfig('gallery/reviews/enable_write_review')): ?>
+	<div class="review-form">
+		<h3><?php echo $this->__('Write review') ?></h3>
+		<form id="gallery_review_form" method="post" action="<?php echo $this->getUrl('gallery/index/review') ?>">
+			<input type="hidden" name="gallery_id" value="<?php echo $item->getGalleryId() ?>"/>
+			<ul class="form-list">
+				<li class="wide">
+					<label class="required"><?php echo $this->__('Rate') ?></label>
+					<div id="rate">
+						<input class="star required" type="radio" name="gallery_rating" value="1"/>
+						<input class="star" type="radio" name="gallery_rating" value="2"/>
+						<input class="star" type="radio" name="gallery_rating" value="3"/>
+						<input class="star" type="radio" name="gallery_rating" value="4"/>
+						<input class="star" type="radio" name="gallery_rating" value="5"/>
+					</div>
+				</li>
+				<li class="wide">
+					<label class="required"><em>*</em><?php echo $this->__('Name') ?></label>
+					<div class="input-box">
+						<input type="text" class="input-text required-entry" name="name"/>
+					</div>
+				</li>
+				<li class="wide">
+					<label class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+					<div class="input-box">
+						<input type="text" class="input-text required-entry" name="email"/>
+					</div>
+				</li>
+				<li class="wide">
+					<label class="required"><?php echo $this->__('Comment') ?></label>
+					<div class="input-box">
+						<textarea class="input-text" name="content" rows="4"></textarea>
+					</div>
+				</li>
+				<li class="wide">
+					 <?php echo $this->getChildHtml('captcha'); ?>
+				</li>
+			</ul>
+			<div class="box-actions">
+				<button class="button" title="Send" type="submit" >
+					<span><span><?php echo $this->__('Send') ?></span></span>
+				</button>
+				<button class="button" title="Reset" type="reset">
+					<span><span><?php echo $this->__('Reset') ?></span></span>
+				</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+	//<![CDATA[
+		var galleryreviewForm = new VarienForm('gallery_review_form', true);
+	//]]>
+	$(function(){ 
+		 jQuery('#rate :radio.star').rating(); 
+	});
+	</script>
+	<?php endif; ?>
+</div>
+<?php endif; ?>

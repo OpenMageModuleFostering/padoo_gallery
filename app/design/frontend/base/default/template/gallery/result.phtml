@@ -1,0 +1,43 @@
+<script type="text/javascript">
+	var fileLoadingImage = "<?php echo $this->getSkinUrl('gallery/images/loading.gif') ?>";		
+	var fileBottomNavCloseImage = "<?php echo $this->getSkinUrl('gallery/images/closelabel.gif') ?>";
+</script>
+<?php 
+	$_keyword= $_GET['keyword'];
+?>
+<?php if(Mage::getStoreConfig('gallery/info/enable_search_box')): ?>
+<div class="search-container f-right">
+	<form method="get" action="<?php echo $this->getUrl('gallery/index/search') ?>" id="gallery_search_form">
+		<div class="gallery-form-search">
+			<input type="text" class="input-text" value="<?php echo $_keyword ?>" name="keyword" id="gallery-search">
+			<button class="button" title="Search" type="submit"><span><span><?php echo Mage::Helper('gallery')->__('Search') ?></span></span></button>
+			<script type="text/javascript">
+			//&lt;![CDATA[
+				var gallerySearchForm = new Varien.searchForm('gallery_search_form', 'gallery-search', 'Find some photo...');
+			//]]&gt;
+			</script>
+		</div>
+	</form>		
+</div>
+<?php endif; ?>
+<?php if(count($this->getPhotoResults())): ?>
+	<h3><?php echo  Mage::Helper('gallery')->__("Result for search : '%s'", $_keyword); ?></h3>
+	<div class="gallery-container album">		
+		<ul>
+			<?php
+				foreach ($this->getPhotoResults() as $item):
+			?>
+				<li>
+					<p><?php echo $item->getTitle() ?></p>
+					<a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $item->getFilename() ?>" rel="lightbox[projects]" title="<?php echo $item->getTitle() ?>"<?php if(Mage::getStoreConfig('gallery/configs/enable_description_lightbox')): ?> data-content="<?php echo $item->getContent() ?>" <?php endif; ?> ><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename())->resize(175, 130) ?>" /></a>
+					<a href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>"><?php echo Mage::Helper('gallery')->__('Details') ?></a>
+				</li>
+			<?php endforeach; ?>			
+		</ul>
+		<div style="clear:both; text-align: right;"><a href="<?php echo $this->getUrl('gallery') ?>"><?php echo Mage::Helper('gallery')->__('Back to Album') ?></a></div>
+	</div>
+	<div style="clear:both;"><?php echo $this->getToolbarHtml(); ?></div>
+<?php else: ?>
+	<h3><?php echo Mage::Helper('gallery')->__("No result for : '%s'", $_keyword) ?></h3>
+<?php endif; ?>	
+		

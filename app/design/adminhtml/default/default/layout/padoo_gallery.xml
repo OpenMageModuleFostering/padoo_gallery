@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <gallery_admin_admin_review_index>
+        <reference name="content">
+            <block type="gallery/admin_review" name="review" />
+        </reference>
+    </gallery_admin_admin_review_index>
+    <gallery_admin_admin_gallery_index>
+        <reference name="content">
+            <block type="gallery/admin_gallery" name="gallery" />
+        </reference>
+    </gallery_admin_admin_gallery_index>
+    <gallery_admin_admin_album_index>
+        <reference name="content">
+            <block type="gallery/admin_album" name="album" />
+        </reference>
+    </gallery_admin_admin_album_index>
+</layout>

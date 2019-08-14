@@ -1,0 +1,85 @@
+<?php 
+	$ablbum = $this->getCurrentAlbum();
+?>	
+	<script type="text/javascript">
+		var fileLoadingImage = "<?php echo $this->getSkinUrl('gallery/images/loading.gif') ?>";		
+		var fileBottomNavCloseImage = "<?php echo $this->getSkinUrl('gallery/images/closelabel.gif') ?>";
+	</script>
+	<?php
+		echo $this->getBreadcrumbs();
+	?>
+	<div class="gallery-head">
+		<div class="title f-left" >
+			<?php echo $ablbum->getTitle() ?>
+		</div>
+		<?php if(Mage::getStoreConfig('gallery/info/enable_search_box')): ?>
+		<div class="search-container f-right">
+			<form method="get" action="<?php echo $this->getUrl('gallery/index/search') ?>" id="gallery_search_form">
+				<div class="gallery-form-search">
+					<input type="text" class="input-text" value="" name="keyword" id="gallery-search">
+					<button class="button" title="Search" type="submit"><span><span><?php echo $this->__('Search') ?></span></span></button>
+					<script type="text/javascript">
+					//&lt;![CDATA[
+						var gallerySearchForm = new Varien.searchForm('gallery_search_form', 'gallery-search', 'Find some photo...');
+					//]]&gt;
+					</script>
+				</div>
+			</form>		
+		</div>
+		<?php endif; ?>
+		<div style="clear:both;"></div>
+		<div class="date">
+			<?php echo date("F j, Y g:i", strtotime($ablbum->getCreatedTime())); ?>
+		</div>
+		<div class="des">
+			<?php echo $ablbum->getContent() ?>
+		</div>
+	</div>
+	<div class="gallery-container album">		
+		<ul>
+			<?php $collection = $this->getPhotos();
+				foreach ($collection as $item) :
+				$reviewCollection =  Mage::getResourceModel('gallery/review_collection');
+				$reviewCollection->getSelect()->where('status = ?', 1)->where('gallery_id = ?', $item->getGalleryId());
+				$rate=0;
+				$rates = array();
+				if(count($reviewCollection)){
+					
+					foreach($reviewCollection as $record){
+						$rate += $record->getReviewRate();
+					}
+					$rates['rate'] = ( $rate/ (count($reviewCollection)* 5) ) *100;
+					$rates['total'] = count($reviewCollection);
+				}
+			?>
+				<li>
+					<?php if(Mage::getStoreConfig('gallery/lightbox/enable_lightbox')): ?>
+					<a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $item->getFilename() ?>" rel="lightbox[roadtrip]" title="<?php echo $item->getTitle() ?>" <?php if(Mage::getStoreConfig('gallery/lightbox/enable_description_lightbox')): ?>data-content="<?php echo $item->getContent() ?>" <?php endif; ?> ><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename())->resize(175, 130) ?>" /></a>
+					<?php if(Mage::getStoreConfig('gallery/reviews/enable_review')): ?>
+						<div class="total-rate review-list">
+							<a  href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>"><?php echo $item->getTitle() ?></a>
+							<ul title="Rate This!" class="star">
+								<li style="width: <?php echo $rates['rate'] ?>%" title="0" class="curr"></li>
+							</ul>
+						</div>
+					<?php else: ?>	
+						<a  href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>"><?php echo $item->getTitle() ?></a>
+					<?php endif; ?>
+					<?php else: ?>
+					<a href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>" title="<?php echo $item->getTitle() ?>"><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename())->resize(175, 130) ?>" /></a>
+					<?php if(Mage::getStoreConfig('gallery/reviews/enable_review')): ?>
+						<div class="total-rate review-list">
+							<a  href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>"><?php echo $item->getTitle() ?></a>
+							<ul title="Rate This!" class="star">
+								<li style="width: <?php echo $rates['rate'] ?>%" title="0" class="curr"></li>
+							</ul>
+						</div>
+					<?php else: ?>	
+						<a  href="<?php echo $this->getUrl('gallery/view/detail',array('id' => $item->getGalleryId())) ?>"><?php echo $item->getTitle() ?></a>
+					<?php endif; ?>
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>			
+		</ul>
+	</div>
+	<div style="clear:both;"><?php echo $this->getToolbarHtml(); ?></div>

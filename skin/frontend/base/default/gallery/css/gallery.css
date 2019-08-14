@@ -1,0 +1,118 @@
+/* For gallery */
+.gallery-head{}
+.gallery-form-search input{height: 17px; width: 250px;}
+.gallery-head .title{font-size: 20px;}
+.gallery-head .date{font-style: italic;}
+.gallery-head .des{}
+.gallery-container { 
+	border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+.gallery-container p{margin:0}
+.gallery-container ul{
+	padding:0 0 0 16px;
+	margin:0px;	
+}
+.gallery-container ul li{
+	list-style-type:none;
+	text-align:center;
+	line-height:36px;
+	float: left;
+	padding: 10px 10px;
+}
+.gallery-container ul li a{
+	text-decoration:underline;
+	font-weight:bold;
+	display: block;
+}
+.gallery-container ul li .total-rate a{
+	float:left;
+}
+.gallery-container ul li .total-rate ul{
+	float:right;
+	margin:10px 0px 0px 0px;
+}
+.gallery-container ul li a:hover{
+	color:#000000;
+	text-decoration:underline;
+	font-weight:bold;
+}
+.gallery-container img {
+	border:1px solid #CCCCCC;
+	height:130px;
+	padding:5px;
+	width:175px;
+}
+.album ul li {
+	float: left;
+}
+
+.new-albums ul li {
+	float: left;
+	padding: 5px;
+}
+
+.new-albums .view-all {
+	clear: both;
+	padding-right:5px;
+	text-align:right;
+}
+
+.new-albums img {
+	border:1px solid #CCCCCC;
+}
+.toolbar-pager{
+	background-color:#f2f2f2;
+	margin:20px 0 10px;
+	border:1px solid #DDDDDD;
+	text-align:center;width:100%;position:relative;
+}
+.toolbar-pager .td-page{float:left;padding:4px 10px;}
+.toolbar-pager .a-right{float:right;padding:padding:4px 10px;}
+.toolbar-pager .pages{}
+.toolbar-pager .pages ol {display:inline;}
+.toolbar-pager .pages li {
+	display:inline;
+	margin:0 2px;
+}
+.toolbar-pager img{vertical-align:middle;}
+.toolbar-pager caption,.toolbar-pager th,.toolbar-pager td {
+	font-weight:normal;
+	text-align:center;
+	vertical-align:middle;
+}
+.gallery-details {text-align: center;}
+.gallery-details  p{margin:15px 0;text-align: left;}
+.gallery-details  span.date{font-style: italic;display:block}
+.gallery-details  img{max-width:100%;}
+
+/* rate */
+.review-list ul.star{
+	background: rgba(0, 0, 0, 0) url("../images/star.gif") repeat-x scroll 0 0;
+    cursor: pointer;
+    float: left;
+    height: 16px;
+    left: 0;
+    list-style: outside none none;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    width: 80px;
+}
+.review-list ul.star li{
+	display: block;
+    float: left;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-decoration: none;
+    text-indent: -9000px;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0) url("../images/star.gif") repeat scroll left 16px;
+}
+.review-list ,.review-form {float: left;margin:0 0 20px;width: 100%;}
+.review-list h3,.review-form h3{border-bottom: 1px solid #ccc;margin: 0 0 15px;}
+.review-list .total-rate {margin:0 0 15px;}
+.review-list .comment > div{margin:0 0 10px; float: left;width: 100%;}
+.review-list .comment .content{margin:5px 0 0;}

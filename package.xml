@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<package>
+    <name>padoo_gallery</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/gpl-license.php">GNU General Public License (GPL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Display images, pictures in the form of Photo Gallery &amp; Product Gallery with lighbox.</summary>
+    <description>&lt;div&gt;&#xD;
+	&lt;p&gt;Photo Gallery extension allows the store owner to add image galleries to their Magento store which can be viewed by users in the front-end with lightbox effect. The Photo Gallery extension is fully manageable from the Magento back-end and allows shop owners to easily add/remove/edit galleries and images.&lt;/p&gt;&#xD;
+	&lt;p&gt;Special the extension allow your client to write review for each image. It is one good option to you SEO your site.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div&gt;&#xD;
+	&lt;h3&gt;Features and benefits&lt;/h3&gt;&#xD;
+	&lt;ul&gt;&#xD;
+		&lt;li&gt;100% opensource&lt;/li&gt;&#xD;
+		&lt;li&gt;Very easy to install and use&lt;/li&gt;&#xD;
+		&lt;li&gt;Doesn&#x2019;t override core Magento ( core class or core template)&lt;/li&gt;&#xD;
+                &lt;li&gt;Support responsive for difference devices&lt;/li&gt;&#xD;
+		&lt;li&gt;Works perfectly with popular browsers including Firefox, Chrome, IE  and Safari&lt;/li&gt;&#xD;
+		&lt;li&gt;Friendly and easy to configurable&lt;/li&gt;&#xD;
+		&lt;li&gt;Compatibility: Magento CE 1.4, 1.5, 1.6, 1.7, 1.8, 1.9&lt;/li&gt;&#xD;
+	&lt;/ul&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div&gt;&#xD;
+	&lt;h3&gt;How to use the our Gallery extension&lt;/h3&gt;&#xD;
+	&lt;ol&gt;&#xD;
+		&lt;li&gt;Install via Magentoconnect or get it from our site Mage-addons.com&lt;/li&gt;&#xD;
+		&lt;li&gt;Configuration FAQ options are available in administration panel: System --&amp;gt; Configuration --&amp;gt; Padoosoft extension --&amp;gt; Gallery&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/settings.png" /&gt;&lt;/li&gt;&#xD;
+		&lt;li&gt;On the backend, go to Gallery =&amp;gt; Manage albums&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/manage-album.png" /&gt;&#xD;
+To create a new group, click on the Add Album button:&#xD;
+You can input the name, photo, description, status, store view, etc&#x2026; and save it.&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/add-album.png" /&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;On the backend, go to Gallery =&amp;gt; Manage Photos&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/manage-photo.png" /&gt;&#xD;
+To create a new item, click on the Add Photo button: &#xD;
+You can input the order, title, image, description and select the album, the displaying store view, then enable the Album items.&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/add-photo.png" /&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;By default, you can find the link to Gallery page from the homepage or any page of the system.&#xD;
+&#xD;
+When clicking on an album, the album page will show all the photos as below:&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/photos-list.png" /&gt;&#xD;
+When clicking on a photo, a light box will show as below:&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/lightbox.png" /&gt;&#xD;
+&lt;/li&gt;&#xD;
+&lt;li&gt;&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/detail-photo.png" /&gt;&#xD;
+Customers can submit their own question at the frontend. After finishing, their review will be listed at Manage Review page from the backend to wait for the store owner&#x2019;s check.&#xD;
+&lt;img alt="" src="http://www.mage-addons.com/media/wysiwyg/gallery/review-photo.png" /&gt;&#xD;
+&lt;/li&gt;&#xD;
+	&lt;/ol&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div&gt;&#xD;
+	&lt;h3&gt;How to disable the extension&lt;/h3&gt;&#xD;
+	&lt;p&gt;Set &amp;quot;No&amp;quot; on System &amp;gt; Configuration&amp;gt; Gallery &amp;gt; General&lt;/p&gt;&#xD;
+	&lt;p&gt;Open the file &#x201C;app/etc/modules/ Padoo_Gallery.xml&#x201D;  and change the following line: Form &amp;quot;True&amp;quot; To  &amp;quot; False&amp;quot;&#xD;
+&lt;/p&gt;&#xD;
+&lt;/div&gt;</description>
+    <notes>Display images, pictures in the form of Photo Gallery &amp; Product Gallery with lighbox.</notes>
+    <authors><author><name>Padoosoft</name><user>Padoo</user><email>stdspace@gmail.com</email></author></authors>
+    <date>2016-09-06</date>
+    <time>08:26:36</time>
+    <contents><target name="magelocal"><dir name="Padoo"><dir name="Gallery"><dir name="Block"><dir name="Admin"><dir name="Album"><dir name="Edit"><file name="Form.php" hash="242f58b333c55b26e025818c6208e2ff"/><dir name="Tab"><file name="Form.php" hash="80f2567185403d6f20c941c687c2cb21"/></dir><file name="Tabs.php" hash="21903413751c87a5f6e95334bcde3d79"/></dir><file name="Edit.php" hash="f0eec3c508e00055ff72f4ca81c4469a"/><file name="Grid.php" hash="b06bce951c847916cfddffd295679765"/></dir><file name="Album.php" hash="f99bd84c162fcfb6269ff1c9be220c6c"/><dir name="Gallery"><dir name="Edit"><file name="Form.php" hash="98ac8c12bec32d26ea8a1f1881ff4b2b"/><dir name="Tab"><file name="Form.php" hash="a619cc945989129282833bc908a7cab9"/></dir><file name="Tabs.php" hash="772a541e1d03829fa35a04f893c47156"/></dir><file name="Edit.php" hash="2114a7bb17b4ea26c09a85e4c87b108b"/><file name="Grid.php" hash="6c40878c237375a74e66cb788d74c837"/></dir><file name="Gallery.php" hash="d3b51eee2dd8d2908ec95167e786a850"/><dir name="Review"><dir name="Edit"><file name="Form.php" hash="10a596ba28c565669727a4c19762e580"/><dir name="Tab"><file name="Form.php" hash="98eb371fcd899043cf2df5d17f5c78c3"/></dir><file name="Tabs.php" hash="bc43887ae3157644e12dcf914d29849c"/></dir><file name="Edit.php" hash="87200104ee0331b345b37dd06a5c486a"/><file name="Grid.php" hash="7c40246b959d35173af41741b69e1072"/></dir><file name="Review.php" hash="cb66c84a34c3e75b9b2c7195fac10890"/></dir><file name="Ajax.php" hash="9ab378ca6223116eda3143292f33c239"/><file name="Album.php" hash="8f0aaa03b4d67c65474bf8816ac11ed5"/><file name="Detail.php" hash="7c60f54d13318b2415c7ce1768075451"/><file name="Gallery.php" hash="31d2492bb57f3754dcbf411df52fc530"/><dir name="Page"><file name="Pager.php" hash="48ff0dd0e64797428db574ba476ffa31"/></dir><file name="Review.php" hash="cfc5e6ca398eeafc2cee64b8dbdd2ed3"/><file name="Search.php" hash="b37790ac88f2149507de7fa4471d36c0"/></dir><dir name="Helper"><file name="Data.php" hash="03d58c5ec380ca26ed50ca34208b4ea7"/><file name="Image.php" hash="1e730e441611141381a9b7770426a1b4"/></dir><dir name="Model"><file name="Album.php" hash="0f5c41d5b222d8bb1b50d565a953430a"/><file name="Gallery.php" hash="6b3e9e913b0db55f1a2ed369389a0e78"/><file name="Image.php" hash="e7b86d3362725b3b3d41b2ef0c6ce9b3"/><dir name="Mysql4"><dir name="Album"><file name="Collection.php" hash="0b4b2851f9a1abc4547626534754ff2f"/></dir><file name="Album.php" hash="374ebdc096dc2ae3f67351279f568bf1"/><dir name="Gallery"><file name="Collection.php" hash="4ebaaf2037ede41b5f4c6eca185335ef"/></dir><file name="Gallery.php" hash="cdebf78744959e8a2a3f74732f562d0a"/><dir name="Review"><file name="Collection.php" hash="b143d3b76a79035f0027dd95d18d44b3"/></dir><file name="Review.php" hash="1302e3b0c265dea12613ac03f85abe07"/></dir><file name="Review.php" hash="045e33bf63c4f2929e66e391ca1df18a"/><file name="Status.php" hash="9a07d11ffb72d36ac29d34ee90d1a6a1"/><file name="_Project.php" hash="6441bb41d4fedbf53514bc96627d1bb2"/></dir><dir name="controllers"><dir name="Admin"><file name="AlbumController.php" hash="777bbc35839ec524ca0d2dce945b8463"/><file name="GalleryController.php" hash="13a25348a48e28180fdbdfaf6e7d8023"/><file name="ReviewController.php" hash="7a89db0ccb08e2efa9dfa7948a15e900"/></dir><file name="IndexController.php" hash="d1c3eced2e4b8b3a8a1eff1fc16d119e"/><file name="ViewController.php" hash="3edc430058edb9371d78755f9a63e1b5"/></dir><dir name="etc"><file name="adminhtml.xml" hash="d6684ae11816a7f6ff2308affd5c49b0"/><file name="config.xml" hash="3afc727644a4ccf311653d27130b4c1a"/><file name="system.xml" hash="8c0ce7a5deb095daf429d00e232c13a0"/></dir><dir name="sql"><dir name="gallery_setup"><file name="mysql4-install-0.1.0.php" hash="3a653f850e9e3d2d8fa3efc455dc7403"/><file name="mysql4-upgrade-0.1.0-0.1.1.php" hash="3e39456b709f0d2a4720f34770eba92a"/><file name="mysql4-upgrade-0.1.1-0.1.2.php" hash="982feb5ce58a2771644a29f001bbb0f7"/><file name="mysql4-upgrade-0.1.2-0.1.3.php" hash="03e792741fd2ac605fc7e5bfb3f8ddc9"/><file name="mysql4-upgrade-1.0.1-1.0.2.php" hash="e41d8895430c458355622644775c7c99"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Padoo_Gallery.xml" hash="86c2fc15863585e3345a4b455aa9c9fb"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="padoo_gallery.xml" hash="85d4f554113c8eaee494604e27170b9b"/></dir><dir name="template"><dir name="gallery"><file name="album.phtml" hash="71742fe5637d421e027a1ed84783ecac"/><file name="details.phtml" hash="20446bee614e4871003986f1dc0b81fa"/><file name="gallery.phtml" hash="1b86a889683b6c344dae6b17c9236e61"/><file name="newalbums.phtml" hash="6fa70ae03887d99cf377e10d9ec3c694"/><dir name="photo"><file name="pager.phtml" hash="6368a36bfc8b2ec3d978731d8e52517d"/></dir><file name="photoalbum.phtml" hash="f4b938ad20f5d6ad22170b6c83ea0755"/><file name="result.phtml" hash="65faf74d6293e96a0a4fa1e2a54188c7"/><file name="search-form.phtml" hash="93f3541e05184fdd694284e7600a9a46"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="padoo_gallery.xml" hash="dc187450f9b1049f19065dfc05a59f4a"/></dir><dir name="template"><dir name="gallery"><file name="grid.phtml" hash="61d2b84700c8ddfbe48423eeafaea428"/><file name="grid1.phtml" hash="17bb68dddd9983701bd447148fe8fe92"/><file name="grid2.phtml" hash="17bb68dddd9983701bd447148fe8fe92"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="Padoo_Gallery.csv" hash="6abc85cbd80bdf1e355fa6f596987e64"/></dir></target><target name="mage"><dir name="js"><dir name="padoo"><file name="checkValue.js" hash="963c1c86bbd0462be3c4793399a86024"/><file name="jquery.js" hash="b08031186fb28716dcbb38bcbd3ace0d"/><file name="jquery_noconflict.js" hash="afdd9b4ecb226d898fe655136f849752"/><file name="scriptaculous.js" hash="b592273cfa1d97643325ad77f7030879"/><file name="simplecheckout.js" hash="7158c0b30c4fbf2cbfc9b87c3f065043"/><file name="storelocator.js" hash="4cd94ab10a4cd421fff843a3854f71c4"/><file name="tinybox.js" hash="7e8a0b5f8e639947f494c9668caa169c"/></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="gallery"><dir name="css"><file name="gallery.css" hash="ce9d441e2b1554ea27c7a936cfc881be"/><file name="jquery.rating.css" hash="94a70c9dcf1693e319c656d8cc0a5d7b"/><file name="lightbox.css" hash="11c5e9d4314e23dae6db539fca93c018"/></dir><dir name="images"><file name="bullet.gif" hash="1f7dd21de89bed2cf605ed7bd1276a63"/><file name="close.gif" hash="540f65d2b2f94032d6c3037622843a50"/><file name="closelabel.gif" hash="0e5462b0b4f00432eac4b33d5fa31c5a"/><file name="donate-button.gif" hash="fa03647656edb3a3cf87c5ca6f03eed7"/><file name="download-icon.gif" hash="6b66870c450a8d856f0a5a7e6087611d"/><file name="image-1.jpg" hash="2059be04139e24558449e53920e89924"/><file name="loading.gif" hash="7e99e1159a3686f6aa4f90043c554483"/><file name="nextlabel.gif" hash="110afaaaf901f67fee2357c5df88a1aa"/><file name="prevlabel.gif" hash="fb5fff30d471cc603589578015d36864"/><file name="star.gif" hash="3b7a845229f4041f5d8a18399f4c7357"/><file name="thumb-1.jpg" hash="9b1b923cd76561359f8886033a4f5848"/></dir><dir name="js"><file name="jquery.colorbox.js" hash="bedeb1e36e8e7a90732adccc8a4d10c9"/><file name="jquery.galleriffic.js" hash="e97b018587f4d35dc32aab823ccbf435"/><file name="jquery.rating.js" hash="d2390533b5ab98d05b13b81afdc9ae96"/><file name="lightbox.js" hash="278dfa36ab7dcf78da9f8c44cf291885"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

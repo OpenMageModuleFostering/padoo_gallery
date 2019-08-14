@@ -1,0 +1,45 @@
+	<script type="text/javascript">
+		var fileLoadingImage = "<?php echo $this->getSkinUrl('gallery/images/loading.gif') ?>";		
+		var fileBottomNavCloseImage = "<?php echo $this->getSkinUrl('gallery/images/closelabel.gif') ?>";
+	</script>
+	<?php
+		$breadcrumbs = $this->getLayout()->getBlock('breadcrumbs');
+		$breadcrumbs->addCrumb('home', array('label'=>Mage::helper('cms')->__('Home'), 'title'=>Mage::helper('cms')->__('Home Page'), 'link'=>Mage::getBaseUrl()));
+		$breadcrumbs->addCrumb('gallery', array('label'=>'gallery', 'title'=>'gallery'));
+		echo $this->getLayout()->getBlock('breadcrumbs')->toHtml();
+	?>
+	<div class="gallery-head">
+		<div class="title f-left" >
+			<?php echo $this->__('Gallery') ?>
+		</div>
+		<?php if(Mage::getStoreConfig('gallery/info/enable_search_box')): ?>
+		<div class="search-container f-right">
+			<form method="get" action="<?php echo $this->getUrl('gallery/index/search') ?>" id="gallery_search_form">
+				<div class="gallery-form-search">
+					<input type="text" class="input-text" value="" name="keyword" id="gallery-search">
+					<button class="button" title="Search" type="submit"><span><span>Search</span></span></button>
+					<script type="text/javascript">
+					//&lt;![CDATA[
+						var gallerySearchForm = new Varien.searchForm('gallery_search_form', 'gallery-search', 'Find some photo...');
+					//]]&gt;
+					</script>
+				</div>
+			</form>		
+		</div>
+		<?php endif; ?>
+	</div>
+	<div style="clear:both;"></div>
+	<div class="gallery-container">
+		<ul>
+			<?php 
+				$collection = $this->getAlbums();
+				foreach ($collection as $item) { ?>
+				<li>
+					<a href="<?php echo $this->getUrl('gallery/view/album',array('id'=>$item->getAlbumId())) ?>"><?php echo $item->getTitle() ?></a>				
+					<a href="<?php echo $this->getUrl('gallery/view/album',array('id'=>$item->getAlbumId())) ?>" title="<?php echo $item->getTitle() ?>" ><img src="<?php echo $this->helper('gallery/image')->init($item->getFilename())->resize(175, 130) ?>"/></a>
+					
+					<?php echo $item->getDescription() ?>
+				</li>
+			<?php } ?>			
+		</ul>
+	</div>

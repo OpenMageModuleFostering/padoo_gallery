@@ -1,0 +1,17 @@
+<?php 
+	$_keyword= $_GET['keyword'];
+?>
+<div class="search-container f-right">
+	<form method="get" action="<?php echo $this->getUrl('gallery/index/search') ?>" id="gallery_search_form">
+		<div class="gallery-form-search">
+			<input type="text" class="input-text" value="<?php echo $_keyword ?>" name="keyword" id="gallery_search">
+			<button class="button" title="Search" type="submit"><span><span>Search</span></span></button>
+			<script type="text/javascript">
+			//&lt;![CDATA[
+				var gallerySearchForm = new Varien.searchForm('gallery_search_form', 'gallery_search', 'Find some photo...');
+			//]]&gt;
+			</script>
+		</div>
+	</form>		
+</div>	
+		

@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/padoo_gallery",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License-(GPL)",
+    "homepage": "",
+    "description": "Display images, pictures in the form of Photo Gallery & Product Gallery with lighbox.",
+    "authors": [
+    {
+        "name": "Padoosoft",
+        "email": "stdspace@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

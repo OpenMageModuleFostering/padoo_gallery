@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Padoo_Gallery>
+            <version>1.0.2</version>
+        </Padoo_Gallery>
+    </modules>
+    <frontend>
+        <routers>
+            <gallery>
+                <use>standard</use>
+                <args>
+                    <module>Padoo_Gallery</module>
+                    <frontName>gallery</frontName>
+                </args>
+            </gallery>
+        </routers>	
+		<translate>
+			<modules>
+				<Padoo_Gallery>
+					<files>
+						<default>Padoo_Gallery.csv</default>
+					</files>
+				</Padoo_Gallery>
+			</modules>
+		</translate>		
+        <layout>
+            <updates>
+                <gallery>
+                    <file>padoo_gallery.xml</file>
+                </gallery>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<gallery_admin>
+				<use>admin</use>
+				<args>
+					<module>Padoo_Gallery</module>
+					<frontName>gallery_admin</frontName>
+				</args>
+			</gallery_admin>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<gallery module="gallery">
+				<title>Gallery</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<albums module="gallery">
+						<title>Manage Albums</title>
+						<sort_order>10</sort_order>
+						<action>gallery_admin/admin_album</action>
+					</albums>
+					<photos module="gallery">
+						<title>Manage Photos</title>
+						<sort_order>20</sort_order>
+						<action>gallery_admin/admin_gallery</action>
+					</photos>
+					<review module="gallery">
+						<title>Manage Review</title>
+						<sort_order>30</sort_order>
+						<action>gallery_admin/admin_review</action>
+					</review>
+				</children>
+			</gallery>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<gallery module="gallery">
+							<title>Gallery</title>
+							<sort_order>71</sort_order>               
+							<children>
+								<albums module="gallery">
+									<title>Manage Albums</title>
+									<sort_order>10</sort_order>
+								</albums>
+								<photos module="gallery">
+									<title>Manage Photos</title>
+									<sort_order>20</sort_order>
+								</photos>
+								<review module="gallery">
+									<title>Manage Review</title>
+									<sort_order>30</sort_order>
+								</review>
+							</children>
+						</gallery>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <gallery translate="title" module="gallery">
+                                            <title>Gallery</title>
+                                        </gallery>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<gallery>
+					<file>padoo_gallery.xml</file>
+				</gallery>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <gallery>
+                <class>Padoo_Gallery_Model</class>
+                <resourceModel>gallery_mysql4</resourceModel>
+            </gallery>
+            <gallery_mysql4>
+                <class>Padoo_Gallery_Model_Mysql4</class>
+                <entities>
+                    <gallery>
+                        <table>gallery</table>
+                    </gallery>
+                    <album>
+                        <table>gallery_album</table>
+                    </album>
+                    <review>
+                        <table>gallery_review</table>
+                    </review>
+                </entities>
+            </gallery_mysql4>
+		</models>
+        <resources>
+            <gallery_setup>
+                <setup>
+                    <module>Padoo_Gallery</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </gallery_setup>
+            <gallery_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </gallery_write>
+            <gallery_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </gallery_read>
+        </resources>
+        <blocks>
+            <gallery>
+                <class>Padoo_Gallery_Block</class>
+            </gallery>
+        </blocks>
+        <helpers>
+            <gallery>
+                <class>Padoo_Gallery_Helper</class>
+            </gallery>
+        </helpers>
+    </global>
+	<default>
+		<captcha>
+			<frontend>
+				<areas>
+					<gallery>
+						<label>Gallery Page</label>
+					</gallery>
+				</areas>
+			</frontend>
+		</captcha>
+		<customer>
+			<captcha>
+				<enable>1</enable>
+				<always_for>
+					<gallery>1</gallery>
+				</always_for>
+				<forms>gallery</forms>
+			</captcha>
+		</customer>
+		<gallery>
+			<info>
+				<enabled>1</enabled>
+			</info>
+		</gallery>
+	</default>
+</config>

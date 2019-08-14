@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<gallery module="gallery">
+			<title>Gallery 2</title>
+			<sort_order>71</sort_order>               
+			<children>
+				<albums module="gallery">
+					<title>Manage Albums</title>
+					<sort_order>10</sort_order>
+					<action>gallery_admin/admin_album</action>
+				</albums>
+				<photos module="gallery">
+					<title>Manage Photos</title>
+					<sort_order>20</sort_order>
+					<action>gallery_admin/admin_gallery</action>
+				</photos>
+				<review module="gallery">
+					<title>Manage Review</title>
+					<sort_order>30</sort_order>
+					<action>gallery_admin/admin_review</action>
+				</review>
+			</children>
+		</gallery>
+	</menu>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<gallery module="gallery">
+						<title>Gallery</title>
+						<sort_order>71</sort_order>               
+						<children>
+							<albums module="gallery">
+								<title>Manage Albums</title>
+								<sort_order>10</sort_order>
+							</albums>
+							<photos module="gallery">
+								<title>Manage Photos</title>
+								<sort_order>20</sort_order>
+							</photos>
+							<review module="gallery">
+								<title>Manage Review</title>
+								<sort_order>30</sort_order>
+							</review>
+						</children>
+					</gallery>
+					<system>
+						<children>
+							<config>
+								<children>
+									<gallery translate="title" module="gallery">
+										<title>Gallery</title>
+									</gallery>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<layout>
+		<updates>
+			<gallery>
+				<file>gallery.xml</file>
+			</gallery>
+		</updates>
+	</layout>
+</config>

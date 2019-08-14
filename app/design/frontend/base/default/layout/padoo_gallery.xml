@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">	
+	<default>
+		 <reference name="head">
+			<action method="addItem"><type>js</type><name>padoo/jquery.js</name></action>
+			<action method="addItem"><type>js</type><name>padoo/jquery_noconflict.js</name></action>
+			<action method="addCss"><stylesheet>gallery/css/gallery.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/lightbox.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/lightbox.js</name></action>
+        </reference>
+		<reference name="top.links"> 
+			<action ifconfig="gallery/info/toplink" method="addLink" translate="label title" module="gallery"><label>Gallery</label><url helper="gallery/getGallleryUrl" /><title>Gallery</title><prepare/><urlParams/><position>20</position><aParams> <target>_blank</target> </aParams></action> 
+		</reference>
+		<reference name="right">
+			 <block type="gallery/gallery" name="newalbum">
+				<action method="setTemplate" ifconfig="gallery/info/enabled">
+                    <template>gallery/newalbums.phtml</template> 
+                </action>
+				<action method="setTotalAlbum"><total_album>4</total_album></action>
+			 </block>				 
+		</reference>
+	</default>
+	
+    <gallery_index_index>
+         <reference name="head">
+			<action method="setTitle"><title>Gallery</title></action>	
+			<action method="addItem"><type>js</type><name>padoo/jquery.js</name></action>
+			<action method="addItem"><type>js</type><name>padoo/jquery_noconflict.js</name></action>
+			<action method="addCss"><stylesheet>gallery/css/gallery.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/lightbox.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/lightbox.js</name></action>
+        </reference>
+		
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        
+		<reference name="content">
+            <block type="gallery/gallery" name="gallery" template="gallery/gallery.phtml" />
+			<!--<block type="gallery/ajax" name="ajax" template="gallery/ajax.phtml" /> -->
+        </reference>				
+
+    </gallery_index_index>
+
+    <gallery_view_album>
+         <reference name="head">
+			<action method="setTitle"><title>Album</title></action>	
+			<action method="addItem"><type>js</type><name>padoo/jquery.js</name></action>
+			<action method="addItem"><type>js</type><name>padoo/jquery_noconflict.js</name></action>
+			<action method="addCss"><stylesheet>gallery/css/gallery.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/lightbox.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/lightbox.js</name></action>
+        </reference>
+	
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="gallery/gallery" name="gallery" template="gallery/album.phtml" />
+        </reference>
+    </gallery_view_album>
+	
+    <gallery_view_detail>
+         <reference name="head">
+			<action method="setTitle"><title>Photo Infomation</title></action>	
+			<action method="addItem"><type>js</type><name>padoo/jquery.js</name></action>
+			<action method="addItem"><type>js</type><name>padoo/jquery_noconflict.js</name></action>
+			<action method="addCss"><stylesheet>gallery/css/gallery.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/lightbox.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/jquery.rating.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/lightbox.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/jquery.rating.js</name></action>
+        </reference>
+	
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="gallery/detail" name="gallery" template="gallery/details.phtml">
+				<!-- Code Start For Display Captcha on Register page -->
+				<block type="captcha/captcha" name="captcha">
+					<reference name="head">
+						<action method="addJs"><file>mage/captcha.js</file></action>
+					</reference>
+					<action method="setFormId"><formId>gallery</formId></action>
+					<action method="setImgWidth"><width>230</width></action>
+					<action method="setImgHeight"><width>50</width></action>
+				</block> 
+				<!-- Code End For Display Captcha on Register page-->
+			</block>
+        </reference>
+    </gallery_view_detail>
+	
+    <gallery_index_search>
+         <reference name="head">
+			<action method="setTitle"><title>Search Result</title></action>	
+			<action method="addItem"><type>js</type><name>padoo/jquery.js</name></action>
+			<action method="addItem"><type>js</type><name>padoo/jquery_noconflict.js</name></action>
+			<action method="addCss"><stylesheet>gallery/css/gallery.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/lightbox.css</stylesheet></action>
+			<action method="addCss"><stylesheet>gallery/css/jquery.rating.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/lightbox.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>gallery/js/jquery.rating.js</name></action>
+        </reference>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="gallery/search" name="gallery" template="gallery/result.phtml" />
+        </reference>
+    </gallery_index_search>
+</layout> 
